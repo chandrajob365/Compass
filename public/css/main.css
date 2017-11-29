@@ -18,7 +18,7 @@ body {
 }
 
 .locationReading {
-  display: none;
+  display: flex;
   flex-flow: row;
   padding: 8px;
   margin: 8px;
@@ -42,7 +42,9 @@ body {
 .compass {
   display: flex;
   justify-content: center;
-  margin: 32px;
+  margin: 100 auto auto auto;
+  width: 100%;
+  height: 50%;
   padding: 8px;
   position: relative;
 }
@@ -50,8 +52,9 @@ body {
 .disc {
   background: url('/resources/Compass3.png') no-repeat;
   background-size: contain;
-  width: 100%;
-  height: 50%;
+  width: 600px;
+  height: 600px;
+  position: absolute;
   border: none;
   z-index: 0;
 }
@@ -59,8 +62,8 @@ body {
 .needle {
   background: url('/resources/needle.svg');
   background-size: cover;
-  width: 100%;
-  height: 90%;
+  width: 600px;
+  height: 600px;
   border: none;
   position: absolute;
   z-index: 1;
