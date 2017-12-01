@@ -22,6 +22,9 @@ const warningStrings = {
   UNSUPPORTED_ORIENTATION: 'Switch back to portrait or lock your device to portrait'
 }
 
+const infoStrings = {
+  CALIBRATION: 'Calibrate your device by rotating 360° vertically and horizontally'
+}
 const handleMotionEvent = event => {
   if (event.acceleration.x > app.minAccThreshold) {
     if (window.navigator.onLine) {
@@ -124,17 +127,8 @@ const fetchCurrentLocation = () => {
   }
 }
 
-const handleScreenOrientation = event => {
-  let orientationType = screen.orientation.type.split('-')[0]
-  if (orientationType === 'landscape') {
-    app.alert.style.display = 'flex'
-    resetAlert()
-    app.alert.classList.add('warning')
-    app.geoError.textContent = ''
-    app.geoError.textContent = warningStrings.UNSUPPORTED_ORIENTATION
-  } else {
-    clearError()
-  }
+const displayCalibrationInfo = () => {
+  updateNotification(infoStrings.CALIBRATION, 'info')
 }
 
 window.addEventListener('DOMContentLoaded', event => {
@@ -152,10 +146,22 @@ window.addEventListener('DOMContentLoaded', event => {
     document.querySelector('.notMobile').style.display = 'flex'
     document.querySelector('.notMobile').textContent = 'Compass not supported in desktop browser. Please use mobile phone'
   } else {
-    // window.screen.lockOrientation('portrait')
+    displayCalibrationInfo()
     window.addEventListener('deviceorientation', handleOrientation)
     window.addEventListener('devicemotion', handleMotionEvent)
-    window.addEventListener('orientationchange', handleScreenOrientation)
+    window.onorientationchange = readDeviceOrientation
     fetchCurrentLocation()
   }
 })
+
+function readDeviceOrientation () {
+  if (Math.abs(window.orientation) === 90) { // Landscape
+    app.alert.style.display = 'flex'
+    resetAlert()
+    app.alert.classList.add('warning')
+    app.geoError.textContent = ''
+    app.geoError.textContent = warningStrings.UNSUPPORTED_ORIENTATION
+  } else { // Portrait
+    clearError()
+  }
+}
