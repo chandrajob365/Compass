@@ -41,9 +41,9 @@ body {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  border: 5px solid white;
+  border: 5px solid #2E4053;
   border-radius: 20px;
-  background-color: #2E4053;
+  background-color: white;
   font-weight: bold;
   width: 20vw;
   height: 20vw;
@@ -69,10 +69,10 @@ body {
   justify-content:space-around;
   width: 20vw;
   height: auto;
-  border: 5px solid white;
+  border: 5px solid #2E4053;
   border-radius: 20px;
   padding: 8px;
-  background-color: #2E4053;
+  background-color: white;
   font-weight: bold;
 }
 

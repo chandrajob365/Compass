@@ -42,7 +42,7 @@ const handleMotionEvent = event => {
 }
 
 const handleOrientation = event => {
-  let heading = event.alpha // - 180 <= 0 ? event.alpha - 180 : event.alpha
+  let heading = event.alpha
   app.angle.textContent = ''
   app.angle.textContent = Math.floor(heading)
   app.dir.textContent = ''
@@ -73,14 +73,12 @@ const locationUpdate = position => {
 }
 
 const locationUpdateFail = err => {
-  console.log('error code = ', err.code)
   app.latVal.textContent.length !== 0 ? app.latVal.textContent : app.latVal.textContent = '---'
   app.lngVal.textContent.length !== 0 ? app.lngVal.textContent : app.lngVal.textContent = '---'
   handleErrorCase(err)
 }
 
 const handleErrorCase = err => {
-  console.log('app.geoError = ', app.geoError)
   if (app.geoError.textContent.length === 0) {
     switch (err.code) {
       case 1: updateNotification(errorStrings.PERMISSION_DENIED, 'error')
@@ -94,7 +92,6 @@ const handleErrorCase = err => {
 }
 
 const updateNotification = (errorString, notificationClass) => {
-  console.log('[updateNotification] errorString = ', errorString, '  notificationClass = ', notificationClass)
   app.alert.style.display = 'flex'
   resetAlert()
   app.alert.classList.add(notificationClass)
