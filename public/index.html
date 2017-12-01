@@ -1,25 +1,43 @@
 <html>
   <head>
     <title>Compass</title>
-    <link href="https://fonts.googleapis.com/css?family=Vollkorn+SC" rel="stylesheet">
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     <link rel='stylesheet' type='text/css' href='./css/main.css'>
+    <meta name='viewport'
+      content='width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0' />
   </head>
   <body>
-    <div class='app-content'>
-      <div class='locationReading'>
-        <div class='lat'></div>
-        <div class='lng'></div>
+    <div class='notMobile'></div>
+    <div class='appContent'>
+      <div class="alert">
+        <div class="geoError"></div>
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
       </div>
+      <div class='stats'>
+        <div class='dirStats'>
+          <div class='dir'></div>
+          <div class='angle'></div>
+        </div>
+        <div class='appName'>COMPASS</div>
+        <div class='locationStats'>
+          <div class='lat'>
+            <div class='label'></div>
+            <div class='value'></div>
+          </div>
+          <div class='lng'>
+            <div class='label'></div>
+            <div class='value'></div>
+          </div>
+        </div>
+      </div>
+
       <div class='compass'>
-        <div class='disc'></div>
-        <div class='needle compassNeedleImg'></div>
+        <div class='dialImg'></div>
+        <div class='needleImg'></div>
       </div>
-      <div class='footer'>
-        <div class='gps'></div>
-        <div class='navigate'></div>
-        <div class='download'></div>
-      </div>
+
     </div>
+    <script src='./script/main.js'></script>
   </body>
-  <script src='./script/main.js'> </script>
 </html>
