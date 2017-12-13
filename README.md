@@ -16,7 +16,7 @@ Enhancements are welcome!
 
 ## Nearest changes:
 
-* Support for portrait layout
+* Support for landscape layout
 * Insert an instructon about how to calibrate device sensors
 * Support for service worker in safari mobile
 
