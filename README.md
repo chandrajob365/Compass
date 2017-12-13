@@ -17,7 +17,7 @@ Enhancements are welcome!
 ## Nearest changes:
 
 * Support for landscape layout
-* Insert an instructon about how to calibrate device sensors
+* Disable zomming in IOS
 * Support for service worker in safari mobile
 
 ### How to Build
